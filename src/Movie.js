@@ -3,10 +3,16 @@ import PropTypes from 'prop-types'
 import './Movie.css'
 
 function Movie({ id, title, year, summary, poster }) {
-    return <li className="movie-list">
-        <h2>{ title }</h2>
-        <img src={ poster } />
-    </li>
+    return (
+        <div class="movie" key={ id }>
+            <img src={ poster } alt={ title } title={ title } />
+            <div class="movie__data">
+                <h2 class="movie__title">{ title }</h2>
+                <h5 class="movie__year">{ year }</h5>
+                <p class="movie__summary">{ summary }</p>
+            </div>
+        </div>
+    )
 }
 
 Movie.propTypes = {
