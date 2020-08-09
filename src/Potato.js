@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Potato {
+function Potato() {
     return (
         <div>
             Potato
