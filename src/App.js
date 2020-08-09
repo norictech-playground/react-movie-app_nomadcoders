@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types'
+
+const foods = [
+  { name: "Chicken", },
+  { name: "Stick", },
+  { name: "Beaf", },
+  { name: "Noodle", },
+]
+
+function Food({ name }) {
+  return (
+    <h3>{ name }</h3>
+  )
+}
+
+Food.propTypes = {
+  name: PropTypes.string.isRequired
+}
+
+const renderFood = (food) => {
+  return <Food key={ food.name } name={ food.name } />
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      { foods.map(renderFood) }
     </div>
   );
 }
