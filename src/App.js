@@ -1,21 +1,22 @@
-import React from 'react';
-// import PropTypes from 'prop-types'
+import React from 'react'
 
 class App extends React.Component {
-  state = {
-    count: 0
-  }
+    state = {
+        isLoading: true
+    }
 
-  add = () => this.setState(current => ({ count: current.count + 1 })) // use current is a good pratice, current is equal to this.state
-  minus = () => this.setState(current => ({ count: current.count > 0 ? current.count - 1 : current.count }))
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ isLoading: false })
+        }, 2000);
+    }
 
-  render() {
-    return <div>
-      <h3>Total of number is { this.state.count }</h3>
-      <button onClick={ this.add }>Add</button>
-      <button onClick={ this.minus }>Minus</button>
-    </div>
-  }
+    render() {
+        const { isLoading } = this.state
+        return <div>
+            { isLoading ? 'Loading...' : 'We are ready!' }
+        </div>
+    }
 }
 
-export default App;
+export default App
