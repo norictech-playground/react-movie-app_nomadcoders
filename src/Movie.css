@@ -1,0 +1,10 @@
+ul li, ul, li {
+    list-style: none;
+}
+
+.movie-list {
+    /* width: 10rem; */
+    float: left;
+    padding: 1rem;
+    width: 20rem;
+}
